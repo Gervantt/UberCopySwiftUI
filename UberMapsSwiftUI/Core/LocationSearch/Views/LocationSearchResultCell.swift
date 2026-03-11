@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LocationSearchResultCell: View {
+    let title: String
+    let subtitle: String
+    
     var body: some View {
         HStack{
             Image(systemName: "mappin.circle.fill")
@@ -17,10 +20,10 @@ struct LocationSearchResultCell: View {
                 .frame(width: 40, height: 40)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("Starbucks")
+                Text(title)
                     .font(.body)
                 
-                Text("Nurmakov 79, Almaty")
+                Text(subtitle)
                     .font(.system(size: 15))
                     .foregroundStyle(.gray)
                 
@@ -35,5 +38,5 @@ struct LocationSearchResultCell: View {
 }
 
 #Preview {
-    LocationSearchResultCell()
+    LocationSearchResultCell(title: "title", subtitle:  "subtitle")
 }
