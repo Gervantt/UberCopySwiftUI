@@ -32,7 +32,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     
     // MARK: - Helpers
     
-    func selectLocation(_ location: String){
+    func selectLocation(_ location: String?){
         self.selectedLocation = location
     }
 }

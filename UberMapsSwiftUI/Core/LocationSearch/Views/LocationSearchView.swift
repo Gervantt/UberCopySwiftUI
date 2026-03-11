@@ -11,7 +11,7 @@ import MapKit
 struct LocationSearchView: View {
     @State private var destinationLocationText: String = ""
     @Binding var showLocationSearchView: Bool
-    @StateObject var vm = LocationSearchViewModel()
+    @EnvironmentObject var vm: LocationSearchViewModel
     var body: some View {
         ZStack{
             Color(.white)
@@ -60,6 +60,10 @@ struct LocationSearchView: View {
                     VStack (alignment: .leading){
                         ForEach( vm.results, id: \.self){ result in
                             LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
+                                .onTapGesture {
+                                    vm.selectLocation(result.title)
+                                    showLocationSearchView.toggle()
+                                }
                         }
                     }
                 }
